@@ -32,17 +32,14 @@ From Code Composer Studio, I got time0 and time1 count values.
 
 #### Questions/Answers
 ###### Question 1
-How long will it take the timer to roll over?
-
-65.535 ms
+*How long will it take the timer to roll over?*
+* 65.535 ms
 
 ###### Question 2
-How long does each timer count last?
-
-1 microsecond
+*How long does each timer count last?*
+* 1 microsecond
 
 ###### Question 3
-
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/wave_form_question.PNG "waveform/code")
 
 
