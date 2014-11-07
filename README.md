@@ -54,5 +54,8 @@ From Code Composer Studio, I got time0 and time1 count values.
 |Stop logic 0 half-pulse|600|567|
 |Stop logic 1 half-pulse|1600|1609|
 
+#### Timer A Samples/Statistics
+
+
 
 
