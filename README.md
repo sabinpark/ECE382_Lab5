@@ -10,3 +10,14 @@ Use knowledge of interrupts and the Timer_A subsytem to reverse engineer a remot
 * Lab day 3: implement etch-a-sketch or pong
 
 ## Lab 1
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/digital_logic_analyzer.jpg "digital logic analyzer result")
+
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/time0_array.PNG "time0 count result")
+
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/time1_array.PNG "time1 count result")
+
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/wave_form_question.PNG "waveform/code")
+
+
+
+
