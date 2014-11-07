@@ -42,6 +42,17 @@ From Code Composer Studio, I got time0 and time1 count values.
 ###### Question 3
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/wave_form_question.PNG "waveform/code")
 
+#### Remote Timer A Counts
+|Pulse|Duration(ms)|Timer A Counts|
+|:-:|:-:|:-:|
+|Start logic 0 half-pulse|8800|8741|
+|Start logic 1 half-pulse|4400|4340|
+|Data 1 logic 0 half-pulse|550|562|
+|Data 0 logic 0 half-pulse|550|524|
+|Data 0 logic 0 half-pulse|600|566|
+|Data 1 logic 0 half-pulse|500|521|
+|Stop logic 0 half-pulse|600|567|
+|Stop logic 1 half-pulse|1600|1609|
 
 
 
