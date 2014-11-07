@@ -9,8 +9,6 @@ Use knowledge of interrupts and the Timer_A subsytem to reverse engineer a remot
 * Lab day 2: demonstrate your code can receive and decode button presses from the remote control
 * Lab day 3: implement etch-a-sketch or pong
 
-# Lab 1
-
 ## Lab Day 1
 
 #### Setup
@@ -63,5 +61,18 @@ Here are the codes for instructor-requested remote control buttons:
 
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/remote_codes_initial.PNG "remote control button codes (initial)")
 
+Notice how the VOLUME buttons have two extra bytes and a bit than expected. As a result, I decided not to use the VOLUME buttons. 
+
+Here are the codes for the buttons that I wanted to implement:
+
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/remote_codes_final.PNG "remote control button codes (final)")
 
+## Lab Day 2
+
+### Required Functionality
+I decided to use the CHANNEL buttons to toggle the LED *ON* and *OFF*.
+
+### A Functionality
+
+## Documentation
+* JP Terragnoli told me about getting the upper and lower bounds of the timer A counts by using a standard deviation of 5 above and below the mean.
