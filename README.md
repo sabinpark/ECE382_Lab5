@@ -55,7 +55,8 @@ From Code Composer Studio, I got time0 and time1 count values.
 |Stop logic 1 half-pulse|1600|1609|
 
 #### Timer A Samples/Statistics
+I used the "OK" button on the APEX remote (#8 DFEC) and got the following results:
 
-
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/timerA_samples.PNG "timer A samples")
 
 
