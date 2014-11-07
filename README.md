@@ -59,4 +59,9 @@ I used the "OK" button on the APEX remote (#8 DFEC) and got the following result
 
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/timerA_samples.PNG "timer A samples")
 
+Here are the codes for instructor-requested remote control buttons:
+
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/remote_codes_initial.PNG "remote control button codes (initial)")
+
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/remote_codes_final.PNG "remote control button codes (final)")
 
