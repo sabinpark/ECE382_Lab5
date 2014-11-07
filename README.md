@@ -15,10 +15,12 @@ Use knowledge of interrupts and the Timer_A subsytem to reverse engineer a remot
 
 #### Setup
 Here is the how I hooked up the IR sensor to the MSP430:
+
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/lab_setup.PNG "IR setup")
 
 #### Digital Logic Analyzer
 I hooked up the digitical logic analyzer to my IR sensor/MSP430 setup and got the following results:
+
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/digital_logic_analyzer.jpg "digital logic analyzer result")
 
 #### Code Composer Studio
