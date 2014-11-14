@@ -21,6 +21,9 @@ Here is how I hooked up the IR sensor to the MSP430:
 
 ![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/lab_setup.PNG "IR setup")
 
+I used the DFEC-provided APEX remote controller, labeled as #8: 
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/APEX_remote.jpg "APEX remote #8")
+
 #### Digital Logic Analyzer
 I hooked up the digital logic analyzer to my IR sensor/MSP430 setup and got the following results on the DLA:
 
@@ -211,14 +214,84 @@ As shown above, it was not difficult at all to implement the red LEDs as well.
 
 ### A Functionality
 
+The files I used for the A functionality were: *13_lab5_A.c* and *13_nokia.asm*
+
+To start off I knew that I wanted to implement A functionality using the etch-a-sketch program from the required functionality of Lab 4. After some initial problems in creating a new file (see the debugging section below), I was able to add in some of the code and get my A functionality to work.
+
+I literally took my required functionality code from lab 4 and started by adding in the global variables:
+```
+// defined constants
+int8	newIrPacket = FALSE;	// flag to check if there is a new IR packet
+int16	packetData[48];		// array to hold packet data
+int8	packetIndex = 0;
+int32	irPacket;
+
+void initMSP430();		// initialized the msp430
+```
+
+*NOTE*: I also added in the code to initiate the MSP430, which I then called in main.
+
+In main, inside of the infinite while-loop, I adjusted the code from the required functionality (lab 5) and instead of just toggling the LEDs ON and OFF, I also added in code two lines of code (for each button) that checked for any wall boundaries and then triggered a flag that would indicate if a *button* was pressed. For ease of debugging, I kept my LED code as they were.
+
+```
+	while(1) {
+		if(newIrPacket) {
+			newIrPacket = FALSE;
+			_disable_interrupt();
+
+			if(irPacket == POWER) {
+			}
+			if(irPacket == UP_1) {
+				P1OUT |= BIT6;		// green LED ON
+				if (y>=1) y=y-1;	// move up
+				button_press = TRUE;
+			}
+			if(irPacket == LEFT_1) {
+				P1OUT &= ~BIT6;		// green LED OFF
+				if (x>=1) x=x-1;	// move left
+				button_press = TRUE;
+			}
+			if(irPacket == SELECT) {
+				if(c == 1) c = 0;
+				else if(c == 0) c = 1;
+				button_press = TRUE;
+			}
+			if(irPacket == RIGHT_1) {
+				P1OUT |= BIT6;		// green LED ON
+				if (x<=10) x=x+1;
+				button_press = TRUE;
+			}
+			if(irPacket == DOWN_1) {
+				P1OUT &= ~BIT6;		// green LED OFF
+				if (y<=6) y=y+1;
+				button_press = TRUE;
+			}
+			if(irPacket == UP_2) {
+				P1OUT |= BIT0;		// red LED ON
+			}
+			if(irPacket == DOWN_2) {
+				P1OUT &= ~BIT0;		// red LED OFF
+			}
+		}
+			_enable_interrupt();
+```
+
+The program would then check the *button_press* flag and then appropriately draw (or not draw) the block.
+
+The only other things I added to this new c file were the Timer A and Port 2 subroutines. Pretty self-explanatory. 
+
+I ran the program and then got a nice clean initial view of the block as expected. I then used the remote control buttons to move the block around. The block did move around, but everything was glitchy in that the block seemed to move in random spots that corresponded to the general direction of the button inputs. Unfortunately, the program was glitchy, but I am satisfied in that the program did meet the requirements of actually reading the packet data and moving the block.
 
 ### Debugging
 #### Required Functionality
 I initially had trouble with Timer A. When I did turn off Timer A according to the diagram, the LEDs were unresponsive to the remote control inputs. After I got rid of all the code that turned off Timer A, I achieved my required functionality, and the LEDs turned ON and OFF as expected.
 
 #### A Functionality
+My first problem was that when I tried to copy over the  code from lab 4's required functionality, the code would not run. I had copied and pasted the contents of the code directly (and several times), but the program would bring up about 5 errors.
 
-The c file I used for the required functionality was: *12_start5.c*
+I then had the idea of simply copying and pasting the files themselves and renaming those copies. Thus, I did just that and everything worked out fine. 
+
+After writing down my code, my next problem was the glitchiness of the block movements. Obviously there was a problem between the initiations of the LCD screen and the packet-reading. I tried to change the order of the initiations and various other snippets, but I did not get any good results. I have yet to figure out why this glitch occured, but because I did meet the bare minimum of the A functionality, I decided I should get on with my life... 
 
 ## Documentation
 * JP Terragnoli told me about getting the upper and lower bounds of the timer A counts by using a standard deviation of 5 above and below the mean.
