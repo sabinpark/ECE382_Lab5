@@ -2,19 +2,20 @@
 //	Name:		C2C Sabin Park
 //	Term:		Fall 2014
 //	MCU:		MSP430G2553
-//	Date:		21 October 2014
-//	Note:		Lab 4: Main File for Required Functionality
+//	Date:		11 November 2014
+//	Note:		Lab 5: Main File for A Functionality
 //				Use this file with:
-//					08_nokia_R.asm
+//					13_nokia.asm
 //-------------------------------------------------------------------------------
 
 #include <msp430g2553.h>
 #include "start5.h"
 
-int8	newIrPacket = FALSE;
-int16	packetData[48];
+// defined constants
+int8	newIrPacket = FALSE;	// flag to check if there is a new IR packet
+int16	packetData[48];			// array to hold packet data
 int8	packetIndex = 0;
-int32	irPacket;   // corresponds with the defined constants
+int32	irPacket;
 
 void initMSP430();
 
@@ -30,7 +31,6 @@ extern void drawBlock(unsigned char row, unsigned char col, unsigned char color)
 #define		AUX_BUTTON		(P2IN & BIT3)
 #define		LEFT_BUTTON		(P2IN & BIT2)
 #define		RIGHT_BUTTON	(P2IN & BIT1)
-
 
 void main() {
 
@@ -58,15 +58,19 @@ void main() {
 
 			newIrPacket = FALSE;
 
+
+				_disable_interrupt();
+
 			if(irPacket == POWER) {
 			}
 			if(irPacket == UP_1) {
 				P1OUT |= BIT6;		// green LED ON
-				if (y>=1) y=y-1;
+				if (y>=1) y=y-1;	// move up
 				button_press = TRUE;
 			}
 			if(irPacket == LEFT_1) {
-				if (x>=1) x=x-1;
+				P1OUT &= ~BIT6;		// green LED OFF
+				if (x>=1) x=x-1;	// move left
 				button_press = TRUE;
 			}
 			if(irPacket == SELECT) {
@@ -75,6 +79,7 @@ void main() {
 				button_press = TRUE;
 			}
 			if(irPacket == RIGHT_1) {
+				P1OUT |= BIT6;		// green LED ON
 				if (x<=10) x=x+1;
 				button_press = TRUE;
 			}
@@ -91,34 +96,13 @@ void main() {
 			}
 		}
 
-		//initNokia();
+			_enable_interrupt();
 
-			if (UP_BUTTON == 0) {
-				while(UP_BUTTON == 0);
-				if (y>=1) y=y-1;
-				button_press = TRUE;
-			} else if (DOWN_BUTTON == 0) {
-				while(DOWN_BUTTON == 0);
-				if (y<=6) y=y+1;
-				button_press = TRUE;
-			} else if (LEFT_BUTTON == 0) {
-				while(LEFT_BUTTON == 0);
-				if (x>=1) x=x-1;
-				button_press = TRUE;
-			} else if (RIGHT_BUTTON == 0) {
-				while(RIGHT_BUTTON == 0);
-				if (x<=10) x=x+1;
-				button_press = TRUE;
-			} else if (AUX_BUTTON == 0) {
-				while(AUX_BUTTON == 0);
-				if(c == 1) c = 0;
-				else if(c == 0) c = 1;
-				button_press = TRUE;
-			}
+			//init();
+			//initNokia();
 
 			if (button_press) {
 				button_press = FALSE;
-				//clearDisplay();   // commented out because we want to see what we draw
 				drawBlock(y,x,c);
 			}
 
