@@ -2,19 +2,16 @@
 // Name:	Sabin Park
 // File:	12_start5.c
 // Date:	Fall 2014
-// Purp:	Demo the decoding of an IR packet
+// Purp:	Turn LEDs on and off by reading ir packets from a remote control
 //-----------------------------------------------------------------
 #include <msp430g2553.h>
 #include "start5.h"
 
-int8	newIrPacket = FALSE;
-int16	packetData[48];
+// defined constants
+int8	newIrPacket = FALSE;	// flag to check if there is a new IR packet
+int16	packetData[48];			// array to hold packet data
 int8	packetIndex = 0;
-
-// GLOBAL VARs
-int32	irPacket;   // corresponds with the defined constants
-
-
+int32	irPacket;
 
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------

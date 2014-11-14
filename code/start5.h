@@ -44,7 +44,7 @@ __interrupt void timerOverflow (void);
 #define		minStartPulse		averageStartPulse - 100
 #define		maxStartPulse		averageStartPulse + 100
 
-
+// constants for the remote control buttons
 #define		POWER		0x30DFA857		// PWR
 #define		UP_1		0x30DF609F		// 2
 #define		LEFT_1		0x30DF10EF		// 4
