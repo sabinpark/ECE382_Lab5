@@ -110,7 +110,7 @@ I decided to use the *2* and *8* buttons to toggle the LED *ON* and *OFF*. *2* w
 
 To get required functionality, I went through and followed the provided code diagram/image:
 
-![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/lab5_schematic.PNG "provided code schematic")
+![alt test](https://github.com/sabinpark/ECE382_Lab5/blob/master/images/lab5_schematic.jpg "provided code schematic")
 
 I first declared any of the missing global variables. Below are the global variables used:
 ```
@@ -218,6 +218,7 @@ I initially had trouble with Timer A. When I did turn off Timer A according to t
 
 #### A Functionality
 
+The c file I used for the required functionality was: *12_start5.c*
 
 ## Documentation
 * JP Terragnoli told me about getting the upper and lower bounds of the timer A counts by using a standard deviation of 5 above and below the mean.
